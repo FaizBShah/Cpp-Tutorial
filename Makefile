@@ -1,10 +1,10 @@
 dev-build:
 	@echo "Creating dev build"
-	g++ -ggdb -std=c++20 -o ./build/dev/build.exe main.cpp
+	g++ -ggdb -pedantic-errors -std=c++20 -o ./build/dev/build.exe main.cpp
 
 release-build:
 	@echo "Creating release build"
-	g++ -O3 -DNDEBUG -std=c++20 -o ./build/release/build.exe main.cpp
+	g++ -O3 -DNDEBUG -pedantic-errors -std=c++20 -o ./build/release/build.exe main.cpp
 
 run-dev:
 	$(MAKE) dev-build
