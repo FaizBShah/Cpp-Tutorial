@@ -1,28 +1,35 @@
 #include <array>
 #include <iostream>
-#include <string_view>
-#include <tuple>
-#include <type_traits>
+#include <span>
 
-namespace a::b::c
+struct Foo
 {
-    inline constexpr std::string_view str{ "hello" };
+    int a{ };
+    int b{ };
+    int c{ };
+};
+
+consteval int sum(std::span<const int> a) // std::span and consteval
+{
+    int s{ 0 };
+    for (auto n : a)
+        s += n;
+    return s;
 }
 
-template <typename... T>
-std::tuple<std::size_t, std::common_type_t<T...>> sum(T... args)
+auto sum(auto x, auto y) -> decltype(x + y) // abbreviated function templates
 {
-    return { sizeof...(T), (args + ...) };
+    return x + y;
 }
 
 int main()
 {
-    auto [iNumbers, iSum]{ sum(1, 2, 3) };
-    std::cout << a::b::c::str << ' ' << iNumbers << ' ' << iSum << '\n';
+    constexpr std::array a{ 3, 2, 1 };
+    constexpr int s{ sum(a) };
+    std::cout << s << '\n';
 
-    std::array arr{ 1, 2, 3 };
-
-    std::cout << std::size(arr) << '\n';
+    Foo f1{ .a = 1, .c = 3 }; // designated initializers
+    std::cout << sum(f1.a, f1.c) << '\n';
 
     return 0;
 }
