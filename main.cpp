@@ -1,8 +1,8 @@
 #include <iostream>
 
 int main() {
-    int x{};
-    std::cin >> x;
-    std::cout << x << '\n';
+    int num {};
+    std::cin >> num;
+    std::cout << 2 * num << '\n';
     return 0;
 }
