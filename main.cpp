@@ -1,8 +1,12 @@
 #include <iostream>
 
+void doPrint() {
+    std::cout << "In doPrint()\n";
+}
+
 int main() {
-    int num {};
-    std::cin >> num;
-    std::cout << 2 * num << '\n';
+    std::cout << "Starting main()\n";
+    doPrint();
+    std::cout << "Ending main()\n";
     return 0;
 }
