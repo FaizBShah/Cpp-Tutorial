@@ -1,39 +1,14 @@
+// Angle brackets are for headers not written by us, and are in the includes directory
+// To know why this header does not contain .h extension, follow this link:- 
+// https://www.learncpp.com/cpp-tutorial/header-files/#:~:text=on%20your%20system.-,Why%20doesn%E2%80%99t%20iostream%20have%20a%20.h%20extension%3F,-Another%20commonly%20asked
 #include <iostream>
+// Double-quotes are for headers written by us. Preprocessor will first try to search this file
+// in the current directory, else in the includes directory
+#include "add.h"
 
-#define PRINT_JOE
+// Do not try to include .cpp files, as its a bad practice
+// Doing so might result in name conflicts, and other issues
 
 int main() {
-    #ifdef PRINT_JOE
-        std::cout << "This statement will get compiled, because PRINT_JOE macro is defined\n";
-    #endif
-
-    // This is equivalent to the above statement
-    #if defined(PRINT_JOE)
-        std::cout << "This statement will get compiled, because PRINT_JOE macro is defined\n";
-    #endif
-
-    #ifdef PRINT_BOB
-        std::cout << "This statement will not get compiled, because PRINT_BOB macro is not defined\n";
-    #endif
-
-    #ifndef PRINT_BOB
-        std::cout << "This statement will get compiled, because PRINT_BOB macro is not defined\n";
-    #endif
-
-    // This is equivalent to the above statement
-    #if !defined(PRINT_BOB)
-        std::cout << "This statement will get compiled, because PRINT_BOB macro is not defined\n";
-    #endif
-
-    #if 0
-        std::cout << "This statement will not get compiled, because #if 0 is the condition\n";
-    #endif
-
-    #if 1
-        std::cout << "This statement will get compiled, because #if 1 is the condition\n";
-    #endif
-
-    #if 2
-        std::cout << "This statement will also get compiled, because #if 2 is the condition\n";
-    #endif
+    std::cout << "The sum of 3 and 4 is " << add(3, 4) << '\n';
 }
