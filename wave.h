@@ -1,6 +1,3 @@
-#ifndef WAVE_H
-#define WAVE_H
+#pragma once
 
 #include "square.h"
-
-#endif
