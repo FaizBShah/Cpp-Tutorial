@@ -1,0 +1,2 @@
+﻿2024-01-21 18:36:24.133 DEBUG [8544] [main@19] In function main()
+2024-01-21 18:36:24.133 DEBUG [8544] [getUserInput@6] In function getUserInput()
