@@ -1,23 +1,15 @@
 #include <iostream>
-#include <plog/Log.h>
-#include <plog/Initializers/RollingFileInitializer.h>
-
-int getUserInput() {
-    PLOGD << "In function getUserInput()";
-
-    std::cout << "Enter a number\n";
-
-    int x {};
-    std::cin >> x;
-
-    return x;
-}
+#include <iomanip>
 
 int main() {
-    plog::init(plog::debug, "LogFile.txt"); // Initializing the logger library
-
-    PLOGD << "In function main()"; // PLOGD is used to log in debug level
-
-    int x { getUserInput() };
-    std::cout << "You entered: " << x << '\n';
+    std::cout << std::left; // left justify output
+    std::cout << std::setw(16) << "bool:" << sizeof(bool) << " bytes\n";
+    std::cout << std::setw(16) << "char:" << sizeof(char) << " bytes\n";
+    std::cout << std::setw(16) << "short:" << sizeof(short) << " bytes\n";
+    std::cout << std::setw(16) << "int:" << sizeof(int) << " bytes\n";
+    std::cout << std::setw(16) << "long:" << sizeof(long) << " bytes\n";
+    std::cout << std::setw(16) << "long long:" << sizeof(long long) << " bytes\n";
+    std::cout << std::setw(16) << "float:" << sizeof(float) << " bytes\n";
+    std::cout << std::setw(16) << "double:" << sizeof(double) << " bytes\n";
+    std::cout << std::setw(16) << "long double:" << sizeof(long double) << " bytes\n";
 }
