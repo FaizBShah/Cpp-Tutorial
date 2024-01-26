@@ -1,13 +1,17 @@
 #include <iostream>
-#include <cstdint> // This library is used to import the fixed-width typings.
+#include <cstdint> // This library is used to import the fixed-width typings. Its also used to import fast and least types.
 
-// C++ does not have max-width limit for its standard types. The max-width
-// is left for the compiler to implement and depends upon the architecture. 
-// An int type might be 4 bytes in one architecture, and 2 bytes in another.
-// There might be times when we want out values to fixed-width regardless of
-// the architecture, so these are the fixed-width types.
+// Fast types with size T are types which are the fastest in getting computed by the processor
+// and minimum size T.
+// Least types with size T are types that are the smallest size with minimum size atleast T
+// Using fast and least types is not used that much as since the size changes with different
+// architectures, the result might be inconsistent and unexpected
 int main() {
-    std::int32_t num { 10000 };
-    std::int64_t long_num { 10000000 };
-    std::cout << num << " " << long_num << '\n';
+    std::cout << "least 8:  " << sizeof(std::int_least8_t) * 8 << " bits\n";
+	std::cout << "least 16: " << sizeof(std::int_least16_t) * 8 << " bits\n";
+	std::cout << "least 32: " << sizeof(std::int_least32_t) * 8 << " bits\n";
+	std::cout << '\n';
+	std::cout << "fast 8:  " << sizeof(std::int_fast8_t) * 8 << " bits\n";
+	std::cout << "fast 16: " << sizeof(std::int_fast16_t) * 8 << " bits\n";
+	std::cout << "fast 32: " << sizeof(std::int_fast32_t) * 8 << " bits\n";
 }
