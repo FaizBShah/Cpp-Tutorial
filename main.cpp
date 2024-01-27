@@ -1,15 +1,10 @@
-#include <iomanip>
 #include <iostream>
 
 int main() {
-    double zero { 0.0 };
+    bool b1 { true };
+    bool b2 { false };
 
-    double posinf { 5.0 / zero };  // positive infinity
-    std::cout << posinf << '\n';
-
-    double neginf { -5.0 / zero };  // negative infinity
-    std::cout << neginf << '\n';
-
-    double nan { zero / zero };  // not a number (mathematically invalid)
-    std::cout << nan << '\n';
+    std::cout << b1 << ' ' << b2 << '\n';  // Will print 1 and 0
+    std::cout << std::boolalpha;           // To print true and false instead of 0 and 1, use std::boolalpha (You can use std::noboolalpha to turn it off)
+    std::cout << b1 << ' ' << b2 << '\n';  // Will print true and false
 }
