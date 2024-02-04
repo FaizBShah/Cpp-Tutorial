@@ -1,9 +1,8 @@
+#include <cstdint>
 #include <iostream>
 
-void print(int x) {
-    std::cout << x << '\n';
-}
-
 int main() {
-    print(static_cast<int>(5.5));  // We can do explicit type conversion using static_cast
+    std::int8_t val { 65 };
+    std::cout << val << '\n';                    // This might not print 65, but 'A', since int8_t acts as char in some compiler implementations
+    std::cout << static_cast<int>(val) << '\n';  // To print it as 65, convert type to int
 }
