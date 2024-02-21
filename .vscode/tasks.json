@@ -8,11 +8,11 @@
         "-fdiagnostics-color=always",
         "-ggdb", // For adding debug info in the build optimized for gdb
         "-pedantic-errors", // To strictly follow C++ compliance
-        // "-Wall",
-        // "-Weffc++",
-        // "-Wextra",
-        // "-Wconversion",
-        // "-Wsign-conversion",
+        "-Wall",
+        "-Weffc++",
+        "-Wextra",
+        "-Wconversion",
+        "-Wsign-conversion",
         // "-Werror", // For treating warnings as errors
         "-I${workspaceFolder}\\includes", // For setting includes directory path, and helping in finding header files
         "-std=c++20",
