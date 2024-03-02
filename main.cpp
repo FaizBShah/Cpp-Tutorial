@@ -1,29 +1,17 @@
 #include <iostream>
 
-// By declaring the "num" argument as const, we are preventing
-// any modification of this variable inside the function.
-// Although, using const for pass-by-value variables is not recommended
-// as they are anyways copies and will be destroyed once the function ends.
-// const is usually for arguments which are passed-by-reference or passed-by-address.
-void printNumber(const int num) {
-    std::cout << num << '\n';
-}
-
-// Functions can also return const values, but for fundamental types,
-// its usually ignored, while for other types, it usually gets destroyed
-// once the function ends, so its not recommended.
-const int getNumber() {
-    return 5;
-}
-
 int main() {
-    // In C++, there is no special convention for constant variables. It also follows normal camelCase convention
+    int num { 012 };  // This is the Octal no. 12 which is equivalent to 10 in decimal. To declare an octal no., prefix no. with 0
+    std::cout << num << '\n';
 
-    const double PI { 3.14 };      // Recommended way of using const
-    double const gravity { 9.8 };  // This is "east const" style, and this is also valid, but not recommended
+    int hex1 { 0xF };  // This is the Hexadecimal no. F which is equivalent to 15 in decimal. To declare an octal no., prefix no. with 0x(preferred) or 0X
+    std::cout << hex1 << '\n';
 
-    std::cout << PI << " " << gravity << '\n';
+    // There was no support for binary in C++ before C++ 14. so binary used to be represented using hexadecimal values
+    int bin_addr { 0x00FF };  // Every digit in hexadecimal occupies 4 bits, so this value represent the binary value 0000 0000 1111 1111
 
-    printNumber(5);
-    printNumber(getNumber());
+    // From C++ 14, support for binary was added. Use prefix 0b to declare a binary value
+    int bin_value { 0b1010 };  // 10 in decimal
+
+    std::cout << bin_addr << " " << bin_value << '\n';
 }
