@@ -1,17 +1,30 @@
-#include <bitset>  // To output values in binary pre-C++20, you need to import the bitset header
-#include <format>
 #include <iostream>
-// #include <print> //  To output values in C++ 23, you need to import the print header
+
+int getNumber() {
+    std::cout << "Enter a number: ";
+    int y {};
+    std::cin >> y;
+
+    return y;
+}
 
 int main() {
-    std::bitset<8> bin1 { 14 };  // Creating a bitset variable with size 8 bits. It can be initialized with any decimal, hex, octal or binary value
-    std::cout << bin1 << '\n';
-    std::cout << std::bitset<4> { 9 } << '\n';
+    // Non-const variables:
+    int a { 5 };             // 5 is a constant expression
+    double b { 1.2 + 3.4 };  // 1.2 + 3.4 is a constant expression
 
-    // From C++ 20, you can also use the format function to print binary values
-    std::cout << std::format("{:b}\n", 0b1010);   // Will print 1010
-    std::cout << std::format("{:#b}\n", 0b1010);  // Will print 0b1010
+    // Const integral variables with a constant expression initializer
+    // are compile-time constants:
+    const int c { 5 };       // 5 is a constant expression
+    const int d { c };       // c is a constant expression
+    const long e { c + 2 };  // c + 2 is a constant expression
 
-    // From C++ 23, you can also use the print function to print binary values
-    // std::println("{:b} {:#b}", 0b1010, 0b1010);  // Will print 1010 0b1010
+    // Other const variables are runtime constants:
+    const int f { a };            // a is not a constant expression
+    const int g { a + 1 };        // a + 1 is not a constant expression
+    const long h { a + c };       // a + c is not a constant expression
+    const int i { getNumber() };  // getNumber() is not a constant expression
+
+    const double j { b };    // b is not a constant expression
+    const double k { 1.2 };  // 1.2 is a constant expression
 }
