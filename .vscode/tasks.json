@@ -15,7 +15,7 @@
         "-Wsign-conversion",
         // "-Werror", // For treating warnings as errors
         "-I${workspaceFolder}\\includes", // For setting includes directory path, and helping in finding header files
-        "-std=c++20",
+        "-std=c++23",
         "${fileDirname}\\**.cpp",
         "-o",
         "${fileDirname}\\${fileBasenameNoExtension}.exe"
