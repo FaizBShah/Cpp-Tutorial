@@ -15,6 +15,15 @@ constexpr int greater(int x, int y) {
     return x > y ? x : y;
 }
 
+// Note: Because constexpr functions may be evaluated at compile-time, the compiler must be able to see the full definition
+// of the constexpr function at all points where the function is called. A forward declaration will not suffice, even if the
+// actual function definition appears later in the same compilation unit.
+// This means that a constexpr function called in multiple files needs to have its definition included into each such file --
+// which would normally be a violation of the one-definition rule. To avoid such problems, constexpr functions are implicitly inline,
+// which makes them exempt from the one-definition rule.
+// As a result, constexpr functions are often defined in header files, so they can be #included into any .cpp file that requires the
+// full definition.
+// Consteval functions are also implicitly inline (presumably for consistency).
 int main() {
     std::cout << greater(5, 6) << '\n';               // This function might or might not be evaluated during compile-time
     std::cout << compileTime(greater(5, 6)) << '\n';  // This function will always be evaluated during compile-time, as its wrapped by a consteval function
