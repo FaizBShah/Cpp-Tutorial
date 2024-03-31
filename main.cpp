@@ -1,15 +1,12 @@
 #include <iostream>
-
-// Note: x and y are not constexpr variable, neither they can be declared as such.
-// This is because that will imply that constexpr functions can only be called with
-// constexpr parameters, which is wrong, because we cal also call with non-constexpr
-// parameters.
-// We can also modify the values of these variables inside the function, and also introduce
-// local non-const variable like int z { x + y}, and modify the value of z too. All these
-// changes will be evaluated at compile-time if the function is evaluated in compile-time.
-constexpr int greater(int x, int y) {
-    return x > y ? x : y;
-}
+#include <string>
 
 int main() {
+    std::string name1 { "Jason" };  // String with value
+    name1 = "Faiz";                 // The variable can be re-assigned, and that too to a string of different length
+
+    std::string name2 {};  // Empty string
+
+    std::cout << "My name is: " << name1 << '\n';  // You can use string variables directly in std::cout
+    std::cout << '[' << name2 << ']' << '\n';      // This will print []
 }
