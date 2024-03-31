@@ -2,13 +2,10 @@
 #include <string>
 
 int main() {
-    std::string name {};
-    std::string color {};
+    std::string animal { "Elephant" };
+    std::cout << "The length of the string is: " << animal.length() << '\n';  // Will print 8;
 
-    // To input string properly, use std::getline() instead of std::cin
-    // The std::ws is an input manipulator which ignores leading whitespaces in input
-    std::getline(std::cin >> std::ws, name);
-    std::getline(std::cin >> std::ws, color);
+    int length { static_cast<int>(animal.length()) };  // .length() returns size_t, not int, so you need to cast it to int
 
-    std::cout << "The name is: " << name << " and color is: " << color << '\n';  // Will print Faiz Shah and Red properly
+    std::cout << "The length of the string is: " << length << '\n';  // Will print 8;
 }
