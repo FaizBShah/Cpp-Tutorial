@@ -15,4 +15,7 @@ int main() {
 
     std::string s1 { "Hello World 2" };  // std::string implicitly gets converted to std::string_view
     print(s1);
+
+    constexpr std::string_view s2 { "Hello World 3" };  // Unlike std::string, std::string_view is compatible with constexpr
+    print(s2);
 }
