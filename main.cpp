@@ -2,6 +2,12 @@
 #include <string>
 #include <string_view>
 
+// The best use case of std::string_view is as a read-only function parameter.
+// string_view depends on the string or the object which it is viewing. If there is
+// any change in that object (such as its value getting modified or it getting destroyed),
+// it will be reflected in the string_view object too, and hence might lead to unexpected results.
+// A view to a dead object is sometimes called a dangling view.
+// In most cases, prefer std::string_view as a function parameter.
 void print(std::string_view s) {
     std::cout << s << '\n';
 }
